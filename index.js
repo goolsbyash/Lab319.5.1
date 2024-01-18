@@ -29,5 +29,6 @@ app.use((err, _req, res, next) => {
 
 // Start the Express server
 app.listen(PORT, () => {
+    // Mongoose connection can also be initiated here
   console.log(`Server is running on port: ${PORT}`);
 });
