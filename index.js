@@ -4,7 +4,9 @@ import express from "express";
 import mongoose from "mongoose";
 
 
-// import grades from "./routes/grades.js";
+import grades from "./routes/grades.js";
+
+// Not really needed at this time
 import Grade from "./models/grades.js"
 
 
@@ -18,7 +20,7 @@ app.get("/", (req, res) => {
   res.send("Welcome to the API.");
 });
 
-// app.use("/grades", grades);
+app.use("/grades", grades);
 
 // Global error handling
 app.use((err, _req, res, next) => {
