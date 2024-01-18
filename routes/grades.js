@@ -15,7 +15,7 @@ router.get("/:id", async (req, res) => {
   //   if (!result) res.send("Not found").status(404);
   //   else res.send(result).status(200);
   try {
-    let result = await Grade.find({ learner_id: req.params.id });
+    let result = await Grade.find({ _id: req.params.id });
     res.send(result);
   } catch {
     res.status(404).send("Not Found");
@@ -32,9 +32,7 @@ router.get("/student/:id", async (req, res) => {
   //   else res.send(result).status(200);
   try {
     // Includes scores of all objects with matching learner id
-    let result = await Grade.find({ learner_id: req.params.id }).select(
-      "scores"
-    );
+    let result = await Grade.find({ _id: req.params.id }).select("scores");
     res.send(result);
   } catch {
     res.status(404).send("Not Found");
