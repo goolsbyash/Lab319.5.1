@@ -1,10 +1,16 @@
-import express from "express";
 import "./localEnv.js";
+import {conn} from './db/conn.js';conn();
+import express from "express";
+import mongoose from "mongoose";
+
+
+// import grades from "./routes/grades.js";
+import Grade from "./models/grades.js"
+
 
 const PORT = process.env.PORT || 3000;
 const app = express();
 
-import grades from "./routes/grades.js";
 
 app.use(express.json());
 
@@ -12,7 +18,7 @@ app.get("/", (req, res) => {
   res.send("Welcome to the API.");
 });
 
-app.use("/grades", grades);
+// app.use("/grades", grades);
 
 // Global error handling
 app.use((err, _req, res, next) => {
