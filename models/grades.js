@@ -1,12 +1,13 @@
 import mongoose from "mongoose";
 
 const gradeSchema = new mongoose.Schema({
-    scores: {
-        type: Array,
-        required: true,
-    },
+    scores: [{
+        grade_type: String,
+        score: Number,
+    }],
     class_id: {
         type: Number,
+        required: true,
         unique: false,
     },
     learner_id: {
